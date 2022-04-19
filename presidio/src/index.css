@@ -29,3 +29,25 @@ code {
 .my-full-width {
   width: 100%;
 }
+
+.loginComponent {
+  margin-top: 7%;
+  margin-bottom: 30px;
+  border: 2px solid #fafafa;
+  padding: 10%;
+  background-color: #fff;
+}
+
+.LoginWholeComponent {
+  margin: 5% 1% 9% 1%;
+}
+
+.loginSubComponent {
+  padding: 3% 5% 3% 5%;
+  background-color: #fff;
+  margin: 1% 0% 20% 0%;
+}
+
+.error-message {
+  color: red;
+}

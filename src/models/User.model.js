@@ -28,7 +28,7 @@ var userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: false,
-      minlength: 1,
+      minlength: 0,
     },
 
     budget: {

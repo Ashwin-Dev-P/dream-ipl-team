@@ -8,7 +8,7 @@ const user_controllers = require("../../controllers/user.controller");
 router.post("/login", user_controllers.login_user_controller);
 
 //register route
-router.post("/register", user_controllers.register_user_controller);
+router.post("/", user_controllers.register_user_controller);
 
 //logout
 router.post("/logout", user_controllers.logout_controller);
