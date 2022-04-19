@@ -9,6 +9,7 @@ const setJWT = require("../utils/users/login/setJWT");
 const {
   createUser,
   get_user_by_email_repository,
+  update_score_repository,
 } = require("../repositories/user.repository");
 
 //import constants
@@ -162,7 +163,13 @@ const login_user_service = async (email, password) => {
   return result;
 };
 
+const update_score_service = async (user_id, score) => {
+  const result = await update_score_repository(user_id, score);
+  return result;
+};
+
 module.exports = {
   register_user_service,
   login_user_service,
+  update_score_service,
 };

@@ -39,16 +39,15 @@ var userSchema = new mongoose.Schema(
       default: 50,
     },
 
-    points: {
-      type: Number,
-      required: true,
-      min: 0,
-      default: 0,
-    },
-
     team_id: {
       type: mongoose.Types.ObjectId,
       required: false,
+    },
+    points_scored: {
+      type: Number,
+      default: 0,
+      min: 0,
+      require: true,
     },
   },
   {

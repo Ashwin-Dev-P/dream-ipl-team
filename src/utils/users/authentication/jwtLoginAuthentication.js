@@ -23,21 +23,21 @@ module.exports = async function jwtLoginAuthentication(req, res, next) {
         });
       }
 
-      const decoded_id = decoded.id;
+      const decoded_id = mongoose.Types.ObjectId(decoded.id); // decoded.id;
+      console.log(decoded_id);
       const valid_user_id = await isValidId(decoded_id);
 
       if (valid_user_id) {
         const user = await UserModel.findOne({ _id: decoded_id })
-          .select("admin -_id")
+          .select("-_id")
           .lean();
-        if (user !== undefined && user !== false && user !== null) {
+
+        if (user) {
           if (req.body) {
             req.body.user_id = decoded_id;
-            req.body.admin = user.admin;
           } else {
             req.body = {
               user_id: decoded_id,
-              admin: user.admin,
             };
           }
 

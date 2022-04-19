@@ -47,7 +47,7 @@ class index extends Component {
 
   render() {
     if (this.props.loggedIn === true) {
-      <Navigate to="/" />;
+      <Navigate to="/select_team" />;
     }
 
     var { loading, error } = this.props.register.status;
@@ -57,7 +57,7 @@ class index extends Component {
 
     return (
       <div className="loginWholeComponent">
-        {this.props.loggedIn === true ? <Navigate to="/" /> : null}
+        {this.props.loggedIn === true ? <Navigate to="/select_team" /> : null}
 
         <div className="row">
           <div className="col-xs-12 col-md-3 col-lg-4"></div>

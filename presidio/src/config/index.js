@@ -9,7 +9,7 @@ export function config() {
   };
 
   if (process.env.NODE_ENV === "development" && use_production_backend) {
-    config_json.backend_url = "https://attendance-sih.herokuapp.com";
+    config_json.backend_url = "";
     return config_json;
   } else if (process.env.NODE_ENV === "production") {
     config_json.backend_url = "";

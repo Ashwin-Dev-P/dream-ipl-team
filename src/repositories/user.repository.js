@@ -38,7 +38,25 @@ const get_user_by_email_repository = async (email) => {
   return user;
 };
 
+const update_score_repository = async (user_id, score) => {
+  const user = await UserModel.findById(user_id).select("points_scored").lean();
+  console.log("fetched user", user);
+  const points_scored = user.points_scored + score;
+  const update = {
+    points_scored,
+    points: points_scored,
+  };
+
+  const updateResult = await UserModel.findByIdAndUpdate(
+    user_id,
+    update
+  ).lean();
+  console.log("updated result:", updateResult);
+  return updateResult;
+};
+
 module.exports = {
   createUser,
   get_user_by_email_repository,
+  update_score_repository,
 };
