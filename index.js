@@ -4,6 +4,9 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+//Set static folder
+app.use(express.static("presidio/build"));
+
 //Cookie
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
@@ -35,7 +38,15 @@ app.use(routes);
 //Client route
 const path = require("path");
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "presidio", "build", "index.html"));
+  const client_folder = "presidio";
+  const client_path = path.join(
+    __dirname,
+    client_folder,
+    "build",
+    "index.html"
+  );
+
+  res.sendFile(client_path);
 });
 
 const PORT = process.env.PORT || 5000;
